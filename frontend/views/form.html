@@ -1,0 +1,30 @@
+<section ng-controller="FormController as formCtrl">
+    <content class="sender--content">
+        <h1 class="sender--title">
+            <small>
+                Enter email
+            </small>
+        </h1>
+        <br>
+        <form>
+            <div class="form-group">
+                <label>To</label>
+                <input type="text" required class="form-control" ng-model="formCtrl.email.to" placeholder="email"/>
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" required class="form-control" ng-model="formCtrl.email.subject"
+                       placeholder="subject"/>
+            </div>
+            <div class="form-group">
+                <label>Body</label>
+                <input type="text" required class="form-control" ng-model="formCtrl.email.body" placeholder="body"/>
+            </div>
+            <button class="btn btn-primary" ng-disabled="!formCtrl.email.to || !formCtrl.email.body || !formCtrl.email.subject" ng-click="formCtrl.send()">Send</button>
+            <br><br>
+            <div ng-show="formCtrl.message" class="alert alert-info">
+                <strong>Info!</strong> {{formCtrl.message}}
+            </div>
+        </form>
+    </content>
+</section>

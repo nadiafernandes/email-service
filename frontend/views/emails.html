@@ -1,0 +1,32 @@
+<section ng-controller="EmailController as emailCtrl">
+    <content class="sender--content">
+        <h1 class="sender--title">
+            <small>
+                Email List
+            </small>
+        </h1>
+        <br>
+        <form>
+            <input type="text" required class="form-control" ng-model="emailCtrl.filter" placeholder="filter"/>
+            <br>
+            <div ng-hide="emailCtrl.emails.length">
+                No emails available
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="email in emailCtrl.emails | filter: emailCtrl.filter">
+                    <div class="row">
+                        <div class="card pull-left">
+                            To: {{email.to}}<br>
+                            Subject: {{email.subject}}<br>
+                            Body: {{email.body}}
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-primary" ng-click="emailCtrl.edit(email)">Edit</button>
+                            <button class="btn btn-danger" ng-click="emailCtrl.delete(email)">Delete</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </content>
+</section>
