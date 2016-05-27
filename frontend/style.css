@@ -3,6 +3,7 @@
     background-image: url('img/main-bg.jpg');
     -webkit-background-size: cover;
     background-size: cover;
+    min-height: 100vh;
 }
 
 .authoring-content {
@@ -28,7 +29,6 @@
     border:0 none transparent;
 }
 
-
 .sender--content {
     padding: 30px 40px;
     background-color: rgba(255,255,255,.9);
@@ -50,36 +50,9 @@
     font-size: inherit;
     color: inherit;
 }
-
-
-.authoring-container {
-    width: calc(100% - 210px);
-    float: left;
-    height: calc(100vh - 60px);
-    display: block;
-    overflow-x: hidden; }
-
-.authoring-container > main {
-    min-height: 100%;
-    z-index: 1;
-    position: relative; }
-.authoring-container > main[ng-controller*=Editor], .authoring-container > main[ng-controller*=Wizard] {
-    padding: 30px;
-    background-image: url("../assets/images/authoring/main-bg.jpg");
-    background-size: cover; }
-.authoring-container > main[ng-controller*=Library] {
-    padding: 0;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2a4261+0,8eaacf+100 */
-    background-image: -moz-linear-gradient(top, #2a4261 0%, #8eaacf 100%);
-    /* FF3.6-15 */
-    background-image: -webkit-linear-gradient(top, #2a4261 0%, #8eaacf 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background-image: linear-gradient(to bottom, #2a4261 0%, #8eaacf 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a4261', endColorstr='#8eaacf',GradientType=0 );
-    /* IE6-9 */ }
-
-.authoring-container{
-    width: 100%;
-    height: 100%;
-    position: relative; }
+.mail-list{
+    max-height: 200px;
+}
+.email-hover {
+    cursor: pointer;
+}

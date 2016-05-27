@@ -1,6 +1,7 @@
 'use strict';
 
 var config = require('../../../config'),
+    moment = require("moment"),
     emailCollection = config.mongodb.emailCollection;
 
 exports.index = function (req, res) {
@@ -33,7 +34,7 @@ exports.update = function (req, res) {
 exports.create = function (req, res) {
     var email = req.body.email;
     email.isProcessed = false;
-
+    email.date = moment(new Date).format("DD-MM-YYYY HH:mm:ss");
     req.db.collection(emailCollection)
         .insert(req.body.email, function (err, result) {
             if (err) {
@@ -44,17 +45,6 @@ exports.create = function (req, res) {
         });
 
 };
-
-exports.details = function (req, res) {
-    req.db.collection(emailCollection)
-        .findOne({_id: req.db.ObjectId(req.params.emailId)}).toArray(function (err, data) {
-        if (err) {
-            return res.error(err);
-        }
-        return res.json(data);
-    });
-}
-
 
 exports.delete = function (req, res) {
     req.db.collection(emailCollection)

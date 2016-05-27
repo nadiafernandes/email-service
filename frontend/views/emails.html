@@ -13,16 +13,13 @@
                 No emails available
             </div>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="email in emailCtrl.emails | filter: emailCtrl.filter">
-                    <div class="row">
+                <li class="list-group-item" ng-repeat="email in emailCtrl.emails | filter: emailCtrl.filter | orderBy : email.date">
+                    <div class="row" ng-click="emailCtrl.show(email)" class="email-hover">
                         <div class="card pull-left">
-                            To: {{email.to}}<br>
-                            Subject: {{email.subject}}<br>
-                            Body: {{email.body}}
+                            {{email.from}}, {{email.subject}}
                         </div>
                         <div class="pull-right">
-                            <button class="btn btn-primary" ng-click="emailCtrl.edit(email)">Edit</button>
-                            <button class="btn btn-danger" ng-click="emailCtrl.delete(email)">Delete</button>
+                            {{email.date}}
                         </div>
                     </div>
                 </li>

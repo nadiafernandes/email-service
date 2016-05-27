@@ -1,13 +1,15 @@
-var app = angular.module('emailApp', ['ui.router'])
+var app = angular.module('emailApp', ['ui.router', 'ngDialog'])
     .config(function ($urlRouterProvider, $stateProvider) {
-        $urlRouterProvider.otherwise("");
         $stateProvider
             .state('index', {
-                url: '',
+                url: '/',
                 templateUrl: 'views/form.html'
             })
             .state('emails', {
                 url: '/emails',
                 templateUrl: 'views/emails.html'
             });
+
+        $urlRouterProvider.otherwise("/");
+
     });

@@ -4,8 +4,8 @@ app.controller('FormController', function ($scope, $http, $timeout, Email) {
     self.email = {};
     self.email = {
         to: "nadia.fernandess@gmail.com",
-        subject: "nadia.fernandess@gmail.com",
-        body: "nadia.fernandess@gmail.com"
+        subject: "subject",
+        body: "body"
     }
     self.send = function () {
         Email.send({email: self.email})
