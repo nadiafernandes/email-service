@@ -13,8 +13,10 @@
                 No emails available
             </div>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="email in emailCtrl.emails | filter: emailCtrl.filter | orderBy : email.date">
-                    <div class="row" ng-click="emailCtrl.show(email)" class="email-hover">
+                <li class="list-group-item email-hover" ng-repeat="email in emailCtrl.emails | filter: emailCtrl.filter | orderBy : email.date"
+                    ng-click="emailCtrl.show(email)">
+
+                    <div class="row">
                         <div class="card pull-left">
                             {{email.from}}, {{email.subject}}
                         </div>

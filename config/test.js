@@ -6,32 +6,26 @@ module.exports = {
     http: {
         port: 3000
     },
+    sql: {
+
+    },
     email: {
-        from: '',
+        from: 'email@email.com',
+        transport: 'SMTP',
         services: {
-            mandrill:{
-                transport: 'SMTP',
-                service: {
-                    service: 'Mandrill',
-                    auth: {
-                        user: '',
-                        pass: ''
-                    }
-                },
+            mailgun:{
+                auth: {
+                    api_key: ''
+                }
             },
             sendGrid: {
-                transport: 'SMTP',
-                service: {
-                    service: 'Mandrill',
-                    auth: {
-                        user: '',
-                        pass: ''
-                    }
-                },
+                auth: {
+                    api_key: ''
+                }
             }
         },
-        isTestMode: false,
-        testRecipient: ''
+        isTestMode: true,
+        testRecipient: 'email@email.com'
     },
     mongodb: {
         database: 'mongodb://127.0.0.1:27017/email',

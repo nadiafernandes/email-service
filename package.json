@@ -15,6 +15,7 @@
     "moment": "^2.13.0",
     "mongodb": "^2.1.20",
     "nodemailer": "^2.4.2",
+    "nodemailer-mailgun-transport": "^1.0.2",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "promised-mongo": "^1.2.0"
   },

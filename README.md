@@ -50,3 +50,13 @@ I would additional introduce oauth authentication to the service and use redis t
 ### error handling front end, to check if the email is an email
 ### date in email
 ### store from and to
+
+### um processo extra que ve a queu
+### perdendo ligacao a internet continuamos com a queue e processamos td
+### a cada segundo verificamos o que n foi processado e tentamos com um servico, se um nao der com o outro (verificamos sendgrid, se nao der mailgul)
+### posso randomizar error para ver o que acontece se um falhar
+### como tentamos a cada segundo 'e suf ir tentado assim
+
+###mudar para mailgun
+
+###create rantom factor para fazer o servidor de email falhar
