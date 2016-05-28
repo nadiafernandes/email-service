@@ -41,7 +41,7 @@ app.use(function (req, res, next) {
 
 require('../../../backend/routes')(app, express);
 
-var server = app.listen(config.http.port, function () {
+var server = app.listen(process.env.PORT || config.http.port, function () {
     var address = server.address();
     console.log('webserver running on', ['http://', address.address === '::' ? 'localhost' : address.address, ':', address.port].join(''));
 });
