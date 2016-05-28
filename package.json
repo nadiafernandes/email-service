@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/nadiafernandes/email-service/issues"
   },
-  "homepage": "https://github.com/nadiafernandes/email-service#readme"
+  "homepage": "https://github.com/nadiafernandes/email-service#readme",
+  "scripts": {
+    "postinstall": "bower install"
+  }
 }

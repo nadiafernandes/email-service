@@ -1,4 +1,2 @@
-web: npm install
-web: bower install
 web: export NODE_ENV=prod
 web: node server.js mailer
