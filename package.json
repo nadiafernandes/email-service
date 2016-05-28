@@ -35,6 +35,9 @@
     "url": "https://github.com/nadiafernandes/email-service/issues"
   },
   "homepage": "https://github.com/nadiafernandes/email-service#readme",
+  "engines": {
+    "node": "4.4.x"
+  },
   "scripts": {
     "postinstall": "bower install"
   }
