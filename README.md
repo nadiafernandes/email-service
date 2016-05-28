@@ -1,8 +1,7 @@
 # email-service
 
-## installation
+## Installation
 - install **mongodb**
-- install **gulp**
 - npm install
 - bower install
 - set environment (e.g. 'dev' for development)
@@ -10,7 +9,7 @@
 
 
 ## Link to application
-[Heroku server url]: https://mysterious-peak-75256.herokuapp.com/#/
+[Heroku server url] (https://mysterious-peak-75256.herokuapp.com/#/)
 
 
 ## Problem/Solution description (IMPROVE)
