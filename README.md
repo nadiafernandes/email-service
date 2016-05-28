@@ -24,7 +24,6 @@
 - Focused in fullstack/backend.
 
 #### Architecture 
-- Division between backend and frontend to separate the logic between them.
 - Backend consists of:
 1) constants where are available error codes,
 2) controllers where the controllers of the api are inserted
@@ -44,14 +43,15 @@ I decided to use mongodb to store the emails, this way I can store them with the
 With more time I would have also a relational database to manage users. This way, we could check emails by user. 
 I would additional introduce oauth authentication to the service and use redis to store the session. 
 
-### Provoke failure to test the functionality
-### bunyan everywhere
-### error handling front end, to check if the email is an email
-### date in email
-### store from and to
+### API summary
+- **GET /api/emails**
+- **POST /api/emails**
+- **PUT /api/emails**
+- **DELETE /api/emails**
 
-### um processo extra que ve a queu
-### posso randomizar error para ver o que acontece se um falhar
-### como tentamos a cada segundo 'e suf ir tentado assim
+### Possible improvements
+- extra funcionalities as: login, draft emails, etc
+- backend security, verify if the user can access the data calls is trying to perform.
+- random algorithm to provoke failure of the email providers, to use one or another. (I manually tested that)
 
-###create rantom factor para fazer o servidor de email falhar
+### error handling front end/backend, to check if the email is an email
