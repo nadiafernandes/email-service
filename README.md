@@ -13,8 +13,8 @@
 
 
 ## Problem/Solution description (IMPROVE)
-- Possibility to send emails, and to check/delete emails of the list of sent emails.
-- The emails are stored in a queue initially as not processed (pendent). Only after sent the status is set as processed.
+- Possibility to send emails, and to check/delete sent emails.
+- The emails are stored in a queue as not processed (pendent). Only after sent the status is set as processed.
 - Otherwise, in this case of the internet or one of the email providers fail the email continue pendent.
 - To guarantee that the user has the email sent, two different email providers are used (e.g., sendgrid and mailgun). 
 - If the first one fail the second one will be used. 
@@ -24,23 +24,22 @@
 - Focused in fullstack/backend.
 
 #### Architecture 
-- config with the possible environments available, with variables for the databases, ports, root url etc.
-- there are available two environments: 
-    -- dev for testing, sending emails for the test subjected inserted, 
-    -- prod where the emails are sent for the real subject.
+- Config with the possible environments available, with variables for the databases, ports, root url etc.
+- There are available two environments: 
+    1) dev for testing, sending emails for the test subjected inserted, 
+    2) prod where the emails are sent for the real subject.
 -- in a more professional case, more environment could be made available. for instance test and acceptance. For a test server and a acceptance server.
  
 - Division between backend and frontend to separate the logic between them.
 - backend consists of:
--- constants where are available error codes,
--- controllers where the controllers of the api are inserted
--- middleware, that could be access verification (available in case of more time), authorization (available in case of more time), other extra verifications that could occur before a api call can be done
--- process, which contains the mailer process itself and the main server that serves the page
--- routes with the api calls made available
+1) constants where are available error codes,
+2) controllers where the controllers of the api are inserted
+3) middleware, that could be access verification (available in case of more time), authorization (available in case of more time), other extra verifications that could occur before a api call can be done
+4) process, which contains the mailer process itself and the main server that serves the page
+5) routes with the api calls made available
 
-- frontend
--- images, js files with controllers and services, libraries (resultant from bower install) and frontend views (several pages)
--- in this case i did not have time to create a gulp file to transform an sass file in the css file of the page. So I used directly an CSS file.
+- frontend structure: images, js files with controllers and services, libraries (resultant from bower install) and frontend views (several pages).
+In this case i did not have time to create a gulp file to transform an sass file in the css file of the page. So I used directly an CSS file.
 
 #### Database choice 
 I decided to use mongodb to store the emails, because storing a email as json makes more sense that using a relational database.
