@@ -5,23 +5,25 @@
 - install **gulp**
 - npm install
 - bower install
-- set environment (e.g. 'dev')
-- run **node init**
+- set environment (e.g. 'dev' for development)
 - run **nodem server** or **nodemon server**
 
 
 ## Link to application
+[Heroku server url]: https://mysterious-peak-75256.herokuapp.com/#/
 
-## Problem description (IMPROVE)
-- Email sending service with two email providers available.
-- In case of failure of the first one, the other one is used.
 
-## Solution (IMPROVE)
-- Focused in backend.
-- Consists in a mailer process running, checking every second (because mail services have to be fast) if there is new emails to send.
-- In case of failure in mandrill, the email will be sent using send grid.
+## Problem/Solution description (IMPROVE)
+- Possibility to send emails, and to check/delete emails of the list of sent emails.
+- The emails are stored in a queue initially as not processed (pendent). Only after sent the status is set as processed.
+- Otherwise, in this case of the internet or one of the email providers fail the email continue pendent.
+- To guarantee that the user has the email sent, two different email providers are used (e.g., sendgrid and mailgun). 
+- If the first one fail the second one will be used. 
+- Every second the process is called again to try to sent the pendent emails.
 
 ## Technical choices
+- Focused in fullstack/backend.
+
 #### Architecture 
 - config with the possible environments available, with variables for the databases, ports, root url etc.
 - there are available two environments: 
@@ -35,9 +37,11 @@
 -- controllers where the controllers of the api are inserted
 -- middleware, that could be access verification (available in case of more time), authorization (available in case of more time), other extra verifications that could occur before a api call can be done
 -- process, which contains the mailer process itself and the main server that serves the page
--- routes with the api calls made available (MISSING)
+-- routes with the api calls made available
 
--- frontend (MISSING)
+- frontend
+-- images, js files with controllers and services, libraries (resultant from bower install) and frontend views (several pages)
+-- in this case i did not have time to create a gulp file to transform an sass file in the css file of the page. So I used directly an CSS file.
 
 #### Database choice 
 I decided to use mongodb to store the emails, because storing a email as json makes more sense that using a relational database.
@@ -46,17 +50,12 @@ I would additional introduce oauth authentication to the service and use redis t
 
 ### Provoke failure to test the functionality
 ### bunyan everywhere
-### gulp is not mine
 ### error handling front end, to check if the email is an email
 ### date in email
 ### store from and to
 
 ### um processo extra que ve a queu
-### perdendo ligacao a internet continuamos com a queue e processamos td
-### a cada segundo verificamos o que n foi processado e tentamos com um servico, se um nao der com o outro (verificamos sendgrid, se nao der mailgul)
 ### posso randomizar error para ver o que acontece se um falhar
 ### como tentamos a cada segundo 'e suf ir tentado assim
-
-###mudar para mailgun
 
 ###create rantom factor para fazer o servidor de email falhar
