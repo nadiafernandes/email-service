@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="emailApp">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link href="/lib/ng-dialog/css/ngDialog.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/lib/ng-dialog/css/ngDialog-theme-default.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
+    <title>Email service</title>
+</head>
+<body class="sender-page">
+<header class="authoring-header">
+    <a class="navbar-menu" ui-sref-active="active" ui-sref="index"><span class="email-toggle"><i class="fa fa-inbox email-icon" aria-hidden="true"></i> Inbox</span></a>
+    <a class="navbar-menu" ui-sref-active="active" ui-sref="email"><span class="email-toggle"><i class="fa fa-pencil-square-o email-icon" aria-hidden="true"></i> New</span></a>
+</header>
+<div ui-view class="authoring-container"></div>
+<!-- dependencies -->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/lib/moment/min/moment.min.js"></script>
+<script src="/lib/angular/angular.js"></script>
+<script src="/lib/lodash/lodash.min.js"></script>
+<script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/lib/ng-dialog/js/ngDialog.min.js"></script>
+<!-- app -->
+<script src="/js/app.js"></script>
+<script src="/js/services/services.js"></script>
+<script src="/js/controllers/emails.js"></script>
+<script src="/js/controllers/form.js"></script>
+<script src="/js/controllers/details.js"></script>
+
+</body>
+</html>
