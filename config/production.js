@@ -4,7 +4,7 @@ module.exports = {
     title: 'email-provider',
     root: '',
     http: {
-        port: 3000
+        port: 12334
     },
     sql: {},
     email: {
