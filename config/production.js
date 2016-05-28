@@ -30,7 +30,7 @@ module.exports = {
         testRecipient: 'nadia.fernandess@gmail.com'
     },
     mongodb: {
-        database: 'mongodb://127.0.0.1:27017/email',
+        database: 'mongodb://heroku_dh5n5112:a7dr0ri5gku69md5fstgd8sdlk@ds019053.mlab.com:19053/heroku_dh5n5112/email',
         emailCollection: 'emailQueue',
     },
 };
