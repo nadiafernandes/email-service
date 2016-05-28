@@ -1,4 +1,4 @@
-app.controller('FormController', function ($scope, $http, $timeout, Email) {
+app.controller('FormController', function ($scope, $http, $timeout, Email, $state) {
     var self = this;
     self.message = "";
     self.email = {};
@@ -10,9 +10,10 @@ app.controller('FormController', function ($scope, $http, $timeout, Email) {
     self.send = function () {
         Email.send({email: self.email})
             .then(function () {
+                self.message = "Email sent.";
                 $timeout(function () {
-                    self.message = "Email sent.";
                     self.email = {};
+                    $state.go('email');
                 }, 3000);
             })
             .catch(function (e) {

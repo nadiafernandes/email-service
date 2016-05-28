@@ -41,11 +41,13 @@ app.controller('EmailController', function ($scope, $http, $timeout, Email, ngDi
                 'from': email.from,
                 'date': email.date,
                 'subject': email.subject,
-                'text': email.text
+                'text': email.text,
+                '_id': email._id
             },
             template: 'views/modals/emailDetails.html'
         });
     }
     self.refresh();
+    $scope.$watch('email.deleted', self.refresh);
 });
 

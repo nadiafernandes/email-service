@@ -37,7 +37,6 @@
     z-index: 1;
 }
 
-
 /* Title */
 .sender--title {
     margin: 0;
@@ -46,7 +45,7 @@
 }
 .sender--title small {
     font-weight: 300;
-    font-size:24px;
+    font-size: 18px;
     font-size: inherit;
     color: inherit;
 }
@@ -56,4 +55,22 @@
 .email-hover {
     cursor: pointer;
     cursor: hand;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    width: 70%;
+}
+
+.modal-info{
+    color: #666666;
+    font-size:12px;
+}
+
+.email-icon{
+    color: #000;
+    font-size:24px;
+}
+
+.email-toggle{
+    color: #000;
 }

@@ -1,13 +1,16 @@
-<div  ng-controller="DetailsModalController as detailsCtrl">
+<div class="email-modal" ng-controller="DetailsModalController as detailsCtrl">
     <div class="modal-header">
-        <h3 class="modal-title">{{ngDialogData.subject}}</h3>
+        <h3 class="modal-title">Subject: {{ngDialogData.subject}}</h3>
+        <div class="modal-info">
+            From: {{ngDialogData.from}}<br/>
+            To: {{ngDialogData.to}}
+        </div>
     </div>
     <div class="modal-body">
-        <p>{{ngDialogData.from}}</p>
-        <p>{{ngDialogData.to}}</p>
-        <p>{{ngDialogData.body}}</p>
+        <p>{{ngDialogData.body}}aaa</p>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="closeThisDialog(true)">Close</button>
+        <button class="btn btn-danger" type="button" ng-click="detailsCtrl.delete(ngDialogData._id)">Delete</button>
     </div>
 </div>

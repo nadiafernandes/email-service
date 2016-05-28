@@ -2,6 +2,7 @@
 
 var config = require('../../../config'),
     moment = require("moment"),
+    pmongo = require('promised-mongo'),
     emailCollection = config.mongodb.emailCollection;
 
 exports.index = function (req, res) {
@@ -47,9 +48,13 @@ exports.create = function (req, res) {
 };
 
 exports.delete = function (req, res) {
+    console.log(req.params.emailId);
     req.db.collection(emailCollection)
-        .remove({_id: req.db.ObjectId(req.params.emailId)}, function (err) {
-            if (err) return res.error(err);
-            return res.send();
+        .remove({_id: pmongo.ObjectId(req.params.emailId)}, function (err) {
+            if (err) {
+                console.log(err);
+                res.error(err);
+            }
+            res.send();
         });
 }
