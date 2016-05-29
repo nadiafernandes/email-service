@@ -44,10 +44,10 @@ With more time I would have also a relational database to manage users. This way
 I would additional introduce oauth authentication to the service and use redis to store the session. 
 
 ## API summary
-- **GET** /api/emails
-- **POST** /api/emails
-- **PUT** /api/emails
-- **DELETE** /api/emails
+- **GET** /api/emails - obtain all emails
+- **POST** /api/emails - create an email
+- **PUT** /api/emails/:emailId - edit email
+- **DELETE** /api/emails/:emailId - delete an email
 
 ## Interface
 - simple and clean
