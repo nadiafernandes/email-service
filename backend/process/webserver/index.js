@@ -8,12 +8,24 @@ var express = require('express'),
     mongodb = require('mongodb').MongoClient,
     mongodbConnection,
     bunyan = require('bunyan'),
-    log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '});
+    log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '}),
+    passport = require('passport'),
+    BasicStrategy = require('passport-http').BasicStrategy;
 
+passport.use(new BasicStrategy({},
+    function (username, password, done) {
+        var success = (username === config.auth.user && password === config.auth.pass);
+        done(null, success);
+    }
+));
 
+// Setup server
 var app = express();
-
 app.use(bodyParser.json());
+app.use(passport.initialize());
+// comment/remove this line below to disable auth
+app.use(passport.authenticate('basic', { session: false }));
+app.use(express.static(__dirname + '/frontend'));
 
 app.use(function (req, res, next) {
     // log all API activity

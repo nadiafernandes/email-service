@@ -34,4 +34,8 @@ module.exports = {
         database: 'mongodb://127.0.0.1:27017/email',
         emailCollection: 'emailQueue',
     },
+    auth:{
+        user: 'myserver',
+        pass: 'topsecret'
+    }
 };

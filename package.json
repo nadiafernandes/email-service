@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "async": "^2.0.0-rc.5",
+    "basic-auth": "^1.0.4",
     "body-parser": "^1.15.1",
     "bower": "1.6.5",
     "bunyan": "^1.8.1",
@@ -20,6 +21,8 @@
     "nodemailer": "^2.4.2",
     "nodemailer-mailgun-transport": "^1.0.2",
     "nodemailer-sendgrid-transport": "^0.2.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
     "promised-mongo": "^1.2.0"
   },
   "devDependencies": {},

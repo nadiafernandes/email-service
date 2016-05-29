@@ -15,9 +15,9 @@
 ## Problem/Solution description
 - Possibility to send emails, and to check/delete sent emails.
 - The emails are stored in a queue as not processed (pendent). Only after sent the status is set as processed.
-- In this case of the internet failure or one of the email providers fail the email continue pendent.
+- In case of client internet connection failure or one of the email providers fail the email continue pendent.
 - To guarantee that the user has the email sent, two different email providers are used (e.g., sendgrid and mailgun). 
-- If the first one fail the second one will be used. 
+- If the first one fail the second one will be used. The email will never be sent by both email providers.
 - Every second the process is called again to try to sent the pendent emails.
 
 ## Technical choices
@@ -39,7 +39,7 @@ In this case I did not have time to create a gulp file to transform an sass file
 In an professional context, more environment could be made available. For instance test and acceptance. For a test server and a acceptance server.
  
 #### Database choice 
-I decided to use mongodb to store the emails, this way I can store them with their original json format (no need of reational database).
+I decided to use mongodb to store the emails, this way I can store them with their original json format (no need of relational database).
 With more time I would have also a relational database to manage users. This way, we could check emails by user. 
 I would additional introduce oauth authentication to the service and use redis to store the session. 
 
