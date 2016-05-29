@@ -43,15 +43,19 @@ I decided to use mongodb to store the emails, this way I can store them with the
 With more time I would have also a relational database to manage users. This way, we could check emails by user. 
 I would additional introduce oauth authentication to the service and use redis to store the session. 
 
-### API summary
+## API summary
 - **GET /api/emails**
 - **POST /api/emails**
 - **PUT /api/emails**
 - **DELETE /api/emails**
 
-### Possible improvements
+#### Interface
+- simple and clean
+- the user as a clear place to create a new email 
+- and a view of the sent emails where it can check details of a specific email witout losing the previous context
+
+## Possible improvements
 - extra funcionalities as: login, draft emails, etc
 - backend security, verify if the user can access the data calls is trying to perform.
 - random algorithm to provoke failure of the email providers, to use one or another. (I manually tested that)
-
-### error handling front end/backend, to check if the email is an email
+- better error handling in front end (present informative messages to the users)

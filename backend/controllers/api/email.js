@@ -11,11 +11,15 @@ exports.index = function (req, res) {
 
     req.db.collection(emailCollection)
         .find(query).toArray(function (err, data) {
-        if (err) {
-            return res.error(err);
-        }
-        return res.json(data);
-    });
+            if (err) {
+                return res.error(err);
+            }
+            return res.json(data);
+        })
+        .catch(function (e) {
+            log.info(e);
+            res.error(e); //put the error here
+        });
 };
 
 exports.update = function (req, res) {
@@ -27,7 +31,7 @@ exports.update = function (req, res) {
         })
         .catch(function (e) {
             log.info(e);
-            res.error(e); //put the error here
+            res.error(e);
         });
 
 };
@@ -40,9 +44,13 @@ exports.create = function (req, res) {
         .insert(req.body.email, function (err, result) {
             if (err) {
                 log.info(e);
-                res.error(e); //put the error here
+                res.error(e);
             }
             res.send(result);
+        })
+        .catch(function (e) {
+            log.info(e);
+            res.error(e);
         });
 
 };
@@ -56,5 +64,9 @@ exports.delete = function (req, res) {
                 res.error(err);
             }
             res.send();
+        })
+        .catch(function (e) {
+            log.info(e);
+            res.error(e);
         });
 }

@@ -10,6 +10,7 @@ var express = require('express'),
     bunyan = require('bunyan'),
     log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '});
 
+
 var app = express();
 
 app.use(bodyParser.json());
@@ -24,6 +25,7 @@ app.use(function (req, res, next) {
     }
     next();
 });
+
 
 //this was the connection is already arrange and we use always the same
 mongodb.connect(config.mongodb.database, function (err, mdb) {
