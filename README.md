@@ -12,7 +12,7 @@
 [Heroku server url] (https://mysterious-peak-75256.herokuapp.com/#/)
 
 
-## Problem/Solution description (IMPROVE)
+## Problem/Solution description
 - Possibility to send emails, and to check/delete sent emails.
 - The emails are stored in a queue as not processed (pendent). Only after sent the status is set as processed.
 - In this case of the internet failure or one of the email providers fail the email continue pendent.
