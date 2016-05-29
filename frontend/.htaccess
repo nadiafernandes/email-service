@@ -1,4 +1,0 @@
-AuthName "Secure Area"
-AuthType Basic
-AuthUserFile /frontend/.htpasswd
-require valid-user

@@ -24,7 +24,7 @@
                 <label>Body</label>
                 <input type="text" required class="form-control" ng-model="formCtrl.email.body" placeholder="body"/>
             </div>
-            <button class="btn btn-primary" ng-disabled="!formCtrl.email.to || !formCtrl.email.body || !formCtrl.email.subject" ng-click="formCtrl.send()">Send</button>
+            <button class="btn btn-primary" ng-disabled="!formCtrl.email.to || !formCtrl.email.body || !formCtrl.email.subject || !form.email.from" ng-click="formCtrl.send()">Send</button>
             <br><br>
             <div ng-show="formCtrl.message" class="alert alert-info">
                 <strong>Info!</strong> {{formCtrl.message}}
