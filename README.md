@@ -49,10 +49,10 @@ I would additional introduce oauth authentication to the service and use redis t
 - **PUT /api/emails**
 - **DELETE /api/emails**
 
-#### Interface
+## Interface
 - simple and clean
-- the user as a clear place to create a new email 
-- and a view of the sent emails where it can check details of a specific email witout losing the previous context
+- the user has a clear place to create a new email 
+- and a view of the sent emails where it can check details of a specific email without losing the previous context
 
 ## Possible improvements
 - extra funcionalities as: login, draft emails, etc
