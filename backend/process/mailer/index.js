@@ -15,6 +15,7 @@ var config = require('../../../config'),
     emailQueueCollection = mongodb.collection(config.mongodb.emailCollection); //allow to change the collection via config file
 
 async.forever(function (callback) {
+    console.log('MAILER');
     data = {};
     emailQueueCollection.findOne({isProcessed: false})
         .then(function (email) {
