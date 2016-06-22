@@ -37,7 +37,7 @@ async.forever(function (callback) {
                     subject: data.email.subject || 'No subject',
                     text: data.email.body || null
                 };
-
+                console.log("I will send", mailOptions);
                 smtpTransportSendGrid.sendMail(mailOptions, function (errSendGrid) {
                     smtpTransportSendGrid.close()
                     if (errSendGrid) {
