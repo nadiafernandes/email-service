@@ -10,7 +10,8 @@ var express = require('express'),
     bunyan = require('bunyan'),
     log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '}),
     passport = require('passport'),
-    BasicStrategy = require('passport-http').BasicStrategy;
+    BasicStrategy = require('passport-http').BasicStrategy,
+    mailer = require("../mailer").start();
 
 passport.use(new BasicStrategy({},
     function (username, password, done) {
