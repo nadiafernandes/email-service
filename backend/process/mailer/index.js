@@ -3,21 +3,31 @@
 var config = require('../../../config'),
     DELAY = 1000,
     async = require('async'),
-    pmongo = require('promised-mongo'),
+    mongodb = require('mongodb').MongoClient,
     nodemailer = require('nodemailer'),
-    mongodb = pmongo(config.mongodb.database),
     sgTransport = require('nodemailer-sendgrid-transport'),
     mg = require('nodemailer-mailgun-transport'),
     utils = require("./utils"),
     bunyan = require('bunyan'),
     data = {},
     log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '}),
-    emailQueueCollection = mongodb.collection(config.mongodb.emailCollection); //allow to change the collection via config file
+    emailQueueCollection; //allow to change the collection via config file
 
-async.forever(function (callback) {
-    data = {};
-    emailQueueCollection.findOne({isProcessed: false})
-        .then(function (email) {
+//because promise mongo do not work properly with mlab
+mongodb.connect(config.mongodb.database, function (err, mdb) {
+    if (err) {
+        console.log(err);
+    }
+    emailQueueCollection = mdb.collection(config.mongodb.emailCollection);
+    async.forever(function (callback) {
+        data = {};
+
+        emailQueueCollection
+            .findOne({isProcessed: false}).toArray(function (err, email) {
+            if (err) {
+                req.log.info(e);
+                return res.error(err);
+            }
             if (!email) setTimeout(callback, DELAY);
             else {
                 data.email = email; //email to process
@@ -63,8 +73,6 @@ async.forever(function (callback) {
                 });
             }
         })
-        .catch(function (err) {
-            log.info(err.stack);
-            log.info('something went wrong!');
-        });
+    });
 });
+
