@@ -23,7 +23,7 @@
     "nodemailer-sendgrid-transport": "^0.2.0",
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
-    "promised-mongo": "git+https://github.com/mindeavor/promised-mongo.git"
+    "promised-mongo": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {

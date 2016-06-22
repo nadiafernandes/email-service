@@ -2,6 +2,7 @@
 
 var config = require('../../../config'),
     DELAY = 1000,
+    _ = require('lodash'),
     async = require('async'),
     mongodb = require('mongodb').MongoClient,
     nodemailer = require('nodemailer'),
@@ -10,24 +11,17 @@ var config = require('../../../config'),
     utils = require("./utils"),
     bunyan = require('bunyan'),
     data = {},
-    log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '}),
-    emailQueueCollection; //allow to change the collection via config file
+    log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '});
 
 //because promise mongo do not work properly with mlab
 mongodb.connect(config.mongodb.database, function (err, mdb) {
-    if (err) {
-        console.log(err);
-    }
-    emailQueueCollection = mdb.collection(config.mongodb.emailCollection);
+    if (err) console.log(err);
     async.forever(function (callback) {
         data = {};
+        var emailQueueCollection = mdb.collection(config.mongodb.emailCollection);
+        emailQueueCollection.findOne({isProcessed: false}, function (err, email) {
+            if (err) log.info(e);
 
-        emailQueueCollection
-            .findOne({isProcessed: false}).toArray(function (err, email) {
-            if (err) {
-                req.log.info(e);
-                return res.error(err);
-            }
             if (!email) setTimeout(callback, DELAY);
             else {
                 data.email = email; //email to process
@@ -47,7 +41,7 @@ mongodb.connect(config.mongodb.database, function (err, mdb) {
                     text: data.email.body || null
                 };
                 console.log("I will send", mailOptions);
-                smtpTransportSendGrid.sendMail(mailOptions, function (errSendGrid) {
+                /*smtpTransportSendGrid.sendMail(mailOptions, function (errSendGrid) {
                     smtpTransportSendGrid.close()
                     if (errSendGrid) {
                         log.info("Errr emailSending sendGrid ", errSendGrid);
@@ -57,7 +51,7 @@ mongodb.connect(config.mongodb.database, function (err, mdb) {
                                 log.info("Err emailSending mailgun ", errGun);
                                 setTimeout(callback, DELAY);
                             } else {
-                                console.log("email sent MG")
+                                log.info("email sent MG")
                                 utils.saveModifiedCollection(emailQueueCollection, email);
                                 callback();
                             }
@@ -65,12 +59,12 @@ mongodb.connect(config.mongodb.database, function (err, mdb) {
                         });
                     } else {
                         smtpTransportGun.close();
-                        console.log("email sent sg")
+                        log.info("email sent sg")
                         utils.saveModifiedCollection(emailQueueCollection, email);
                         callback();
                     }
 
-                });
+                });*/
             }
         })
     });
