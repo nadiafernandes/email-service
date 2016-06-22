@@ -41,7 +41,7 @@ mongodb.connect(config.mongodb.database, function (err, mdb) {
                     text: data.email.body || null
                 };
                 console.log("I will send", mailOptions);
-                /*smtpTransportSendGrid.sendMail(mailOptions, function (errSendGrid) {
+                smtpTransportSendGrid.sendMail(mailOptions, function (errSendGrid) {
                     smtpTransportSendGrid.close()
                     if (errSendGrid) {
                         log.info("Errr emailSending sendGrid ", errSendGrid);
@@ -64,7 +64,7 @@ mongodb.connect(config.mongodb.database, function (err, mdb) {
                         callback();
                     }
 
-                });*/
+                });
             }
         })
     });
