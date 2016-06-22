@@ -1,2 +1,2 @@
 web: export NODE_ENV=prod
-web: node server.js
+web: node server.js mailer
