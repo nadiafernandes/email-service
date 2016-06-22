@@ -14,6 +14,8 @@ var config = require('../../../config'),
     log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '}),
     emailQueueCollection = mongodb.collection(config.mongodb.emailCollection); //allow to change the collection via config file
 
+console.log(config.mongodb.database);
+
 async.forever(function (callback) {
     console.log('MAILER');
     data = {};
