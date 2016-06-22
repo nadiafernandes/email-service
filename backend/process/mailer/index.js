@@ -63,8 +63,8 @@ async.forever(function (callback) {
                 });
             }
         })
-        .catch(function (err) {
-            log.info(err.stack);
-            log.info('something went wrong!');
-        });
+        //.catch(function (err) {
+        //    log.info(err.stack);
+        //    log.info('something went wrong!');
+        //});
 });
