@@ -11,7 +11,7 @@ var express = require('express'),
     log = bunyan.createLogger({name: 'email-processor', src: true, hostname: ' '}),
     passport = require('passport'),
     BasicStrategy = require('passport-http').BasicStrategy,
-    mailer = require("../mailer").start();
+    mailer = require("../mailer").start(mongodb);
 
 passport.use(new BasicStrategy({},
     function (username, password, done) {
